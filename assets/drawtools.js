@@ -154,6 +154,7 @@ class DrawingTool{
         bestno = i;
       }
     }
+    console.log(bestno);
     return bestno;
   }
 

@@ -10,7 +10,7 @@ inputImage.crossOrigin = 'Anonymous';
 // set up a canvas
 var renderCanvas = document.createElement('canvas');
 var renderContext = renderCanvas.getContext('2d');
-renderContext.fillStyle = "rgba(255,255,255,1)";
+renderContext.fillStyle = "rgba(0,0,0,1)";
 renderContext.fillRect(0, 0, 32, 128);
 
 // define the image_rbg function to draw the image down
