@@ -2,6 +2,7 @@ import "./blathers.scss"
 
 // define draw
 var draw = new DrawingTool();
+console.log("draw post init " + draw);
 var test2 = "x";
 
 // find the img element
@@ -14,7 +15,8 @@ inputImage.onload = function () {
     canvas_convert.width = draw.width;
     canvas_convert.height = draw.height;
     var ctx_convert = canvas_convert.getContext("2d");
-    ctx_convert.drawImage(img, 0, 0, draw.width, draw.height);
+    console.log(inputImage);
+    ctx_convert.drawImage(inputImage, 0, 0, draw.width, draw.height);
     var imgdata = ctx_convert.getImageData(0, 0, draw.width, draw.height);
     image_rgb(imgdata);
 }
@@ -48,6 +50,8 @@ $( document ).ready(function() {
 
     // set up a canvas
     var renderCanvas = document.getElementById('testCanvas');
+    renderCanvas.width = 150;
+    renderCanvas.height = 150;
     console.log("draw2 " + draw);
     draw.addCanvas(renderCanvas, {tall:true, drawCallback:()=>{}});
 

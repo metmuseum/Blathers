@@ -32,7 +32,9 @@
 			for (var type = 2; type <= 40; type += 1) {
 				try {
           return createQr(type, 'L', text, multipart_num, multipart_total, multipart_parity);
-				} catch (err) {}
+				} catch (err) {
+					var s = err;
+				}
 			}
 
 			return null;
