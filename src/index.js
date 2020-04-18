@@ -54,16 +54,17 @@ inputImage.onload = function () {
 var url = './assets/download.png';
 inputImage.src = url;
 
-// try to draw the qr code
-const obj = $('#output-img');
-let data = draw.toString();
-console.log("data " + data);
-if (draw.width == 64) {
-    obj.qrcode({ "correctLevel": 0, "text": data.substr(0, 0x21C), "render": "canvas", "width": 512, "height": 512, "multipart_num": 0, "multipart_total": 3, "multipart_parity": 0x77 });
-    obj.qrcode({ "correctLevel": 0, "text": data.substr(0x21C, 0x21C), "render": "canvas", "width": 512, "height": 512, "multipart_num": 1, "multipart_total": 3, "multipart_parity": 0x77 });
-    obj.qrcode({ "correctLevel": 0, "text": data.substr(0x21C * 2, 0x21C), "render": "canvas", "width": 512, "height": 512, "multipart_num": 2, "multipart_total": 3, "multipart_parity": 0x77 });
-    obj.qrcode({ "correctLevel": 0, "text": data.substr(0x21C * 3, 0x21C), "render": "canvas", "width": 512, "height": 512, "multipart_num": 3, "multipart_total": 3, "multipart_parity": 0x77 });
-} else {
-    obj.qrcode({ "correctLevel": 0, "text": data, "render": "canvas", "width": 512, "height": 512 });
-}
-
+$( document ).ready(function() { 
+    // try to draw the qr code
+    const obj = $('#output-img');
+    let data = draw.toString();
+    console.log("data " + data);
+    if (draw.width == 64) {
+        obj.qrcode({ "correctLevel": 0, "text": data.substr(0, 0x21C), "render": "canvas", "width": 512, "height": 512, "multipart_num": 0, "multipart_total": 3, "multipart_parity": 0x77 });
+        obj.qrcode({ "correctLevel": 0, "text": data.substr(0x21C, 0x21C), "render": "canvas", "width": 512, "height": 512, "multipart_num": 1, "multipart_total": 3, "multipart_parity": 0x77 });
+        obj.qrcode({ "correctLevel": 0, "text": data.substr(0x21C * 2, 0x21C), "render": "canvas", "width": 512, "height": 512, "multipart_num": 2, "multipart_total": 3, "multipart_parity": 0x77 });
+        obj.qrcode({ "correctLevel": 0, "text": data.substr(0x21C * 3, 0x21C), "render": "canvas", "width": 512, "height": 512, "multipart_num": 3, "multipart_total": 3, "multipart_parity": 0x77 });
+    } else {
+        obj.qrcode({ "correctLevel": 0, "text": data, "render": "canvas", "width": 512, "height": 512 });
+    }
+});
