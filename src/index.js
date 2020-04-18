@@ -8,7 +8,11 @@ var inputImage = document.getElementById("test");
 inputImage.crossOrigin = 'Anonymous';
 
 // set up a canvas
-var renderCanvas = document.createElement('canvas');
+var renderCanvas = document.getElementById('testCanvas');
+
+draw.addCanvas(renderCanvas, {tall:true, drawCallback:()=>{
+  }});
+
 var renderContext = renderCanvas.getContext('2d');
 renderContext.fillStyle = "rgba(0,0,0,1)";
 renderContext.fillRect(0, 0, 32, 128);
