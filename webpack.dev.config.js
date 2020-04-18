@@ -12,7 +12,7 @@ module.exports = merge(common, {
 		filename: "blathers.js"
 	},
 	devServer: {
-		contentBase: "./dist",
+		contentBase: "./",
 		publicPath: "/",
 		historyApiFallback: true
 	},

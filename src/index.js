@@ -29,7 +29,7 @@ function getBase64FromImage() {
 
     // If you are loading images from a remote server, be sure to configure “Access-Control-Allow-Origin”
     // For example, the following image can be loaded from anywhere.
-    var url = 'images/download.png';
+    var url = '../assets/download.png';
     img.src = url;
 }
 
