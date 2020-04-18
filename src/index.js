@@ -1,16 +1,16 @@
 import "./blathers.scss"
 
 import { BrowserQRCodeSvgWriter } from '@zxing/library';
-var base64;
 
 function getBase64FromImage() {
+
     // To bypass errors (“Tainted canvases may not be exported” or “SecurityError: The operation is insecure”)
     // The browser must load the image via non-authenticated request and following CORS headers
     var img = new Image();
     img.crossOrigin = 'Anonymous';
 
     // The magic begins after the image is successfully loaded
-    img.onload = function () {
+    let b64 = img.onload = function () {
         var canvas = document.createElement('canvas'),
         ctx = canvas.getContext('2d');
 
@@ -24,24 +24,17 @@ function getBase64FromImage() {
         b64 = uri.replace(/^data:image.+;base64,/, '');
 
         console.log(b64); //-> "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWP4z8DwHwAFAAH/q842iQAAAABJRU5ErkJggg=="
-        base64 = b64;
-    };
+				return b64;
+    }();
 
     // If you are loading images from a remote server, be sure to configure “Access-Control-Allow-Origin”
     // For example, the following image can be loaded from anywhere.
     var url = '../assets/download.png';
     img.src = url;
+		return b64;
 }
 
-getBase64FromImage();
-
-console.log(base64);
-
-const mainNode = document.querySelector(".main");
-
-mainNode.classList.add("is-loaded");
-
+const base64 = getBase64FromImage();
 const codeWriter = new BrowserQRCodeSvgWriter();
-
 // or render it directly to DOM.
 codeWriter.writeToDom('#result', base64, 300, 300);
