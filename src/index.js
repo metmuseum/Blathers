@@ -2,20 +2,22 @@ import "./blathers.scss"
 
 // define draw
 var draw = new DrawingTool();
+var test2 = "x";
 
 // find the img element
 var inputImage = document.getElementById("test");
 inputImage.crossOrigin = 'Anonymous';
 
-// set up a canvas
-var renderCanvas = document.getElementById('testCanvas');
-
-draw.addCanvas(renderCanvas, {tall:true, drawCallback:()=>{
-  }});
-
-var renderContext = renderCanvas.getContext('2d');
-renderContext.fillStyle = "rgba(0,0,0,1)";
-renderContext.fillRect(0, 0, 32, 128);
+// onload method
+inputImage.onload = function () {
+    var canvas_convert = document.createElement('canvas');
+    canvas_convert.width = draw.width;
+    canvas_convert.height = draw.height;
+    var ctx_convert = canvas_convert.getContext("2d");
+    ctx_convert.drawImage(img, 0, 0, draw.width, draw.height);
+    var imgdata = ctx_convert.getImageData(0, 0, draw.width, draw.height);
+    image_rgb(imgdata);
+}
 
 // define the image_rbg function to draw the image down
 function image_rgb(imgdata) {
@@ -42,25 +44,24 @@ function image_rgb(imgdata) {
     draw.onLoad();
 };
 
-// onload method
-inputImage.onload = function () {
-    var canvas_convert = document.createElement('canvas');
-    canvas_convert.width = draw.width;
-    canvas_convert.height = draw.height;
-    var ctx_convert = canvas_convert.getContext("2d");
-    ctx_convert.drawImage(img, 0, 0, draw.width, draw.height);
-    var imgdata = ctx_convert.getImageData(0, 0, draw.width, draw.height);
-    image_rgb(imgdata);
-    
-}
-
-// load the image
-var url = './assets/download.png';
-inputImage.src = url;
-
 $( document ).ready(function() { 
+
+    // set up a canvas
+    var renderCanvas = document.getElementById('testCanvas');
+    console.log("draw2 " + draw);
+    draw.addCanvas(renderCanvas, {tall:true, drawCallback:()=>{}});
+
+    var renderContext = renderCanvas.getContext('2d');
+    renderContext.fillStyle = "rgba(0,0,0,1)";
+    renderContext.fillRect(0, 0, 32, 128);
+
+    // load the image
+    var url = './assets/download.png';
+    inputImage.src = url;
+
     // try to draw the qr code
     const obj = $('#output-img');
+    console.log("draw " + draw);
     let data = draw.toString();
     console.log("data " + data);
     if (draw.width == 64) {
