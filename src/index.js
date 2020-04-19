@@ -19,6 +19,20 @@ inputImage.onload = function () {
     ctx_convert.drawImage(inputImage, 0, 0, draw.width, draw.height);
     var imgdata = ctx_convert.getImageData(0, 0, draw.width, draw.height);
     image_rgb(imgdata);
+
+    // try to draw the qr code
+    const obj = $('#output-img');
+    console.log("draw " + draw);
+    let data = draw.toString();
+    console.log("data " + data);
+    if (draw.width == 64) {
+        obj.qrcode({"correctLevel":0, "text":data.substr(0, 0x21C), "render":"canvas", "width":512, "height":512, "multipart_num":0, "multipart_total":3, "multipart_parity":0x77});
+        obj.qrcode({"correctLevel":0, "text":data.substr(0x21C, 0x21C), "render":"canvas", "width":512, "height":512, "multipart_num":1, "multipart_total":3, "multipart_parity":0x77});
+        obj.qrcode({"correctLevel":0, "text":data.substr(0x21C*2, 0x21C), "render":"canvas", "width":512, "height":512, "multipart_num":2, "multipart_total":3, "multipart_parity":0x77});
+        obj.qrcode({"correctLevel":0, "text":data.substr(0x21C*3, 0x21C), "render":"canvas", "width":512, "height":512, "multipart_num":3, "multipart_total":3, "multipart_parity":0x77});  
+    } else {
+        obj.qrcode({ "correctLevel": 0, "text": data, "render": "canvas", "width": 512, "height": 512 });
+    }
 }
 
 // define the image_rbg function to draw the image down
@@ -49,31 +63,18 @@ function image_rgb(imgdata) {
 $( document ).ready(function() { 
 
     // set up a canvas
-    var renderCanvas = document.getElementById('testCanvas');
-    renderCanvas.width = 150;
-    renderCanvas.height = 150;
+    var testCanvas = document.getElementById('testCanvas');
+    testCanvas.width = 64;
+    testCanvas.height = 64;
     console.log("draw2 " + draw);
-    draw.addCanvas(renderCanvas, {tall:true, drawCallback:()=>{}});
+    draw.addCanvas(testCanvas, {tall:true, drawCallback:()=>{}});
 
-    var renderContext = renderCanvas.getContext('2d');
+    var renderContext = testCanvas.getContext('2d');
     renderContext.fillStyle = "rgba(0,0,0,1)";
-    renderContext.fillRect(0, 0, 32, 128);
+    renderContext.fillRect(0, 0, 64, 64);
 
     // load the image
     var url = './assets/download.png';
     inputImage.src = url;
-
-    // try to draw the qr code
-    const obj = $('#output-img');
-    console.log("draw " + draw);
-    let data = draw.toString();
-    console.log("data " + data);
-    if (draw.width == 64) {
-        obj.qrcode({ "correctLevel": 0, "text": data.substr(0, 0x21C), "render": "canvas", "width": 512, "height": 512, "multipart_num": 0, "multipart_total": 3, "multipart_parity": 0x77 });
-        obj.qrcode({ "correctLevel": 0, "text": data.substr(0x21C, 0x21C), "render": "canvas", "width": 512, "height": 512, "multipart_num": 1, "multipart_total": 3, "multipart_parity": 0x77 });
-        obj.qrcode({ "correctLevel": 0, "text": data.substr(0x21C * 2, 0x21C), "render": "canvas", "width": 512, "height": 512, "multipart_num": 2, "multipart_total": 3, "multipart_parity": 0x77 });
-        obj.qrcode({ "correctLevel": 0, "text": data.substr(0x21C * 3, 0x21C), "render": "canvas", "width": 512, "height": 512, "multipart_num": 3, "multipart_total": 3, "multipart_parity": 0x77 });
-    } else {
-        obj.qrcode({ "correctLevel": 0, "text": data, "render": "canvas", "width": 512, "height": 512 });
-    }
+    
 });
