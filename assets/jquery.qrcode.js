@@ -45,11 +45,11 @@
 
 				// some shortcuts to improve compression
 			var settings_text = settings.text,
-				settings_left = settings.left,
-				settings_top = settings.top,
+				settings_left = 0,
+				settings_top = 0,
 				settings_width = settings.width,
 				settings_height = settings.height,
-				settings_color = settings.color,
+				settings_color = "#000",
 				settings_bgColor = settings.bgColor,
 
         qr = createBestQr(settings_text, settings.multipart_num, settings.multipart_total, settings.multipart_parity),
