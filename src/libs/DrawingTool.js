@@ -416,7 +416,6 @@ class DrawingTool{
     //Build lookup table of palette colors
     let palette = [];
     for (let i = 0; i < 16; ++i){palette.push(this.getPalette(i));}
-    console.log(palette);
     //Render all pixels to the first target
     this.renderTargets[0].calcZoom(this.pattern.width);
     let pixCount = this.pattern.width == 32 ? 1024 : 4096;
@@ -542,8 +541,6 @@ class DrawingTool{
       this.setPixel(x, y, [imgdata.data[i], imgdata.data[i+1], imgdata.data[i+2]]);
     }
   }
-
-
 
 };
 
