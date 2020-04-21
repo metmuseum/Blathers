@@ -1,6 +1,6 @@
 import ACNLQRGenerator from "./libs/ACNLQRGenerator";
 import DrawingTool from "./libs/DrawingTool";
-
+import CropTool from "./cropTool.js";
 import "./blathers.scss"
 
 var canvas = document.getElementById('imageToEncode'),
@@ -28,3 +28,5 @@ document.test_image_to_qr = function()
         image.src = img;
     }
 }
+
+CropTool.init();
