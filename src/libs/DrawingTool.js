@@ -416,6 +416,7 @@ class DrawingTool{
     //Build lookup table of palette colors
     let palette = [];
     for (let i = 0; i < 16; ++i){palette.push(this.getPalette(i));}
+    console.log(palette);
     //Render all pixels to the first target
     this.renderTargets[0].calcZoom(this.pattern.width);
     let pixCount = this.pattern.width == 32 ? 1024 : 4096;
@@ -517,6 +518,32 @@ class DrawingTool{
   toJSON(){
     return this.pattern.toJSON();
   }
+
+  /// Sets the palette to the top-15 closest RGB colors
+  getImagePaletteRgb(imgdata){
+    let palette = [];
+    for (let i = 0; i < 256; i++){palette.push({n: i, c:0});}
+    const pixelCount = imgdata.data.length;
+    for (let i = 0; i < pixelCount; i+=4){
+      if (imgdata.data[i+3] < this.convert_trans*2.55){continue;}
+      palette[this.findRGB([imgdata.data[i], imgdata.data[i+1], imgdata.data[i+2]])].c++;
+    }
+    palette.sort((a, b) => {
+      if (a.c > b.c){return -1;}
+      if (a.c < b.c){return 1;}
+      return 0;
+    });
+    for (let i = 0; i < 15; i++){this.setPalette(i, palette[i].n);}
+
+    //Set each pixel to the nearest color from the palette
+    for (let i = 0; i < pixelCount; i+=4){
+      let x = (i >> 2) % this.width;
+      let y = Math.floor((i >> 2) / this.width);
+      this.setPixel(x, y, [imgdata.data[i], imgdata.data[i+1], imgdata.data[i+2]]);
+    }
+  }
+
+
 
 };
 
