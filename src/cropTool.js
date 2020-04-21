@@ -34,7 +34,7 @@ CropTool.init = () => {
 	const imgEl = document.querySelector('.js-image');
 	const resultInput = document.querySelector(".js-blathers-result");
 	var crop = new Croppie(imgEl, {
-		viewport: { width: 100, height: 100 },
+		viewport: { width: 300, height: 300 },
 		boundary: { width: 300, height: 300 },
 		showZoomer: true,
 		enableOrientation: true
