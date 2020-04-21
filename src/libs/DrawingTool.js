@@ -1,4 +1,4 @@
-import ACNLFormat from '/libs/ACNLFormat';
+import ACNLFormat from './ACNLFormat';
 import lzString from 'lz-string';
 
 class RenderTarget{
@@ -160,7 +160,7 @@ class DrawingTool{
     this.render();
     return true;
   }
-  
+
   redo(){
     if (!this.redoHistory.length){return false};
     this.pushUndo();
@@ -171,7 +171,7 @@ class DrawingTool{
     this.render();
     return true;
   }
-  
+
   /// Gets this.currentColor translated into a HTML color
   get color(){
     return this.getPalette(this.currentColor);
@@ -215,7 +215,7 @@ class DrawingTool{
   }
   get typeInfo(){return ACNLFormat.typeInfo[this.pattern.patternType];}
   get allTypes(){return ACNLFormat.typeInfo;}
-  
+
   /// Finds the closest global palette index we can find to the color c
   /// Supports #RRGGBB-style, [r,g,b]-style, or simply passing a global palette index.
   findRGB(c){
@@ -428,7 +428,7 @@ class DrawingTool{
         this.renderTargets[0].drawPixel(x, y, palette[this.pixels[i]]);
       }
     }
-    
+
     //Finally, copy to all others
     for (let i = 1; i < this.renderTargets.length; ++i){
       this.renderTargets[i].calcZoom(this.pattern.width);
@@ -521,4 +521,3 @@ class DrawingTool{
 };
 
 export default DrawingTool;
-

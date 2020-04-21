@@ -36,6 +36,8 @@
 	},
 	"homepage": "https://github.com/metmuseum/blathers#readme",
 	"dependencies": {
-		"@zxing/library": "^0.16.3"
+		"@zxing/library": "^0.16.3",
+		"jsbi": "^3.1.2",
+		"lz-string": "^1.4.4"
 	}
 }
