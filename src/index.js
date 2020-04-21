@@ -23,8 +23,8 @@ document.test_image_to_qr = function()
 
         var imageQr = new Image();
         imageQr.onload = function() {
-            ctx.drawImage(image, 0, 0);
+            ctx.drawImage(imageQr, 0, 0);
         };
-        image.src = img;
+        imageQr.src = img;
     }
 }
