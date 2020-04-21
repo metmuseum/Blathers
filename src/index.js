@@ -1,3 +1,3 @@
-import DrawingTool from "./libs/DrawingTool";
+import DrawingTool from "./libs/ACNLQRGenerator";
 
 import "./blathers.scss"

@@ -36,4 +36,3 @@ function fnv1a128(v, start = 0, maxVal = 9000) {
 }
 
 export default fnv1a128;
-

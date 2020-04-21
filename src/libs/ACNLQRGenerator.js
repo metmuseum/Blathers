@@ -1,24 +1,23 @@
-import DrawingTool from "/libs/DrawingTool";
-import logger from "/utils/logger";
+import DrawingTool from "./DrawingTool";
 
 //For QR generation
 import { QRCodeEncoder, QRCodeDecoderErrorCorrectionLevel, EncodeHintType } from '@zxing/library';
 
 //for 3D renders
-import {
-  Scene,
-  Texture,
-  sRGBEncoding,
-  NearestFilter,
-  PerspectiveCamera,
-  Mesh,
-  MeshBasicMaterial,
-  WebGLRenderer
-} from '@three/core';
-import {
-  GLTFLoader
-} from '@three/loaders/GLTFLoader';
-import injected from "/utils/injected";
+// import {
+//   Scene,
+//   Texture,
+//   sRGBEncoding,
+//   NearestFilter,
+//   PerspectiveCamera,
+//   Mesh,
+//   MeshBasicMaterial,
+//   WebGLRenderer
+// } from '@three/core';
+// import {
+//   GLTFLoader
+// } from '@three/loaders/GLTFLoader';
+
 
 
 async function generateACNLQR(newData){
@@ -37,14 +36,7 @@ async function generateACNLQR(newData){
   let height = 270;
   //Check if we should 3D render or not
   let path3D;
-  switch (drawingTool.patternType){
-    case 0: path3D = injected.dress_long; break;
-    case 1: path3D = injected.dress_half; break;
-    case 2: path3D = injected.dress_none; break;
-    case 3: path3D = injected.shirt_long; break;
-    case 4: path3D = injected.shirt_half; break;
-    case 5: path3D = injected.shirt_none; break;
-  }
+
   if (path3D){
     //We need to 3D render!
     textureCanvas.width = 128;
@@ -125,46 +117,6 @@ async function generateACNLQR(newData){
     const pattSize = Math.floor((height-60)/sPh);
     pattHeight = pattSize*sPh;
     ctx.drawImage(renderCanvas, 0, 0, sPw, sPh, pattCenter-(sPw*pattSize)/2, (height-pattHeight)/2, pattSize*sPw, pattHeight);
-  }else{
-    pattHeight = height-60;
-    //3D render!
-    const threeCanvas = document.createElement("canvas");
-    threeCanvas.width = width;
-    threeCanvas.height = pattHeight/2;
-    const renderer = new WebGLRenderer({alpha:true, canvas:threeCanvas, antialias:true});
-    const scene = new Scene();
-    const camera = new PerspectiveCamera(75, threeCanvas.width/threeCanvas.height, 0.1, 1000);
-    let model = false;
-    renderer.setClearColor( 0x000000, 0 );
-    let texture = new Texture(textureCanvas)
-    texture.needsUpdate = true;
-    texture.encoding = sRGBEncoding;
-    texture.flipY = false;
-    texture.magFilter = NearestFilter;
-    const texMat = new MeshBasicMaterial({map:texture});
-    const loadModel = (x) => {return new Promise(resolve => {
-      let loader = new GLTFLoader();
-      loader.parse(JSON.stringify(x), "", (gltf) => {resolve(gltf);});
-    });};
-    const gltf = await loadModel(path3D);
-    model = gltf.scene.children[0];
-    model.traverse((child) => {
-      if (child instanceof Mesh){child.material = texMat;}
-    });
-    scene.add(model);
-    camera.position.z = 15;
-    camera.position.y = 25;
-    camera.rotation.x = 5.85;
-    renderer.render(scene, camera);
-    ctx.drawImage(threeCanvas, 0, 0, threeCanvas.width, threeCanvas.height, pattCenter-width/2, (height-pattHeight)/2, threeCanvas.width, threeCanvas.height);
-    model.rotation.y = Math.PI;
-    renderer.render(scene, camera);
-    ctx.drawImage(threeCanvas, 0, 0, threeCanvas.width, threeCanvas.height, pattCenter-width/2, (height-pattHeight)/2+threeCanvas.height, threeCanvas.width, threeCanvas.height);
-    //Free ThreeJS-related resources
-    scene.dispose();
-    texMat.dispose();
-    texture.dispose();
-    renderer.dispose();
   }
 
   //Prepare background pattern for text
@@ -273,4 +225,3 @@ async function generateACNLQR(newData){
 }
 
 export default generateACNLQR;
-
