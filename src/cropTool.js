@@ -24,7 +24,6 @@ CropTool.init = () => {
 		const result = crop.result({type: `base64`, size: `viewport`});
 		result.then((value)=>{
 			resultInput.value = value;
-
 			generateQrCode(value);			
 		});
 

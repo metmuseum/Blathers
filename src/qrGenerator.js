@@ -17,25 +17,26 @@ function imageToQr(imageData)
     draw.creator = "Pieter Claesz";
     draw.title = "Still Life with a Skull and a Writing Quill";
 
-    const base64Image = ACNLQRGenerator(draw);
-    base64Image.then((value)=>{			
-        document.getElementById("qrCode").src = value;
+    const base64Promise = ACNLQRGenerator(draw);
+    base64Promise.then((data)=>{			
+        document.getElementById("qrCode").src = data;
     });
 }
 
-function generateQrCode(data) {
-	var img = new Image();
-	img.onload = function(){
-		var canvas_convert = document.createElement('canvas');
-		canvas_convert.width = draw.width;
-		canvas_convert.height = draw.height;
-		var ctx_convert = canvas_convert.getContext("2d");
-		ctx_convert.drawImage(img,0,0,draw.width,draw.height);
-        var imgdata = ctx_convert.getImageData(0, 0, draw.width, draw.height);	
+function generateQrCode(data) 
+{
+	var image = new Image();
+	image.onload = function(){
+		var canvasConvert = document.createElement('canvas');
+		canvasConvert.width = draw.width;
+		canvasConvert.height = draw.height;
+		var contextConvert = canvasConvert.getContext("2d");
+		contextConvert.drawImage(image,0,0,draw.width,draw.height);
+        var imageData = contextConvert.getImageData(0, 0, draw.width, draw.height);	
         
-        imageToQr(imgdata);
+        imageToQr(imageData);
 	}
-	img.src = data;
+	image.src = data;
 }
 
 export default generateQrCode;
