@@ -6,16 +6,6 @@ var draw = new DrawingTool();
 function imageToQr(imageData) 
 {
     draw.getImagePaletteRgb(imageData);
-    /*draw.title = "Self-Portrait with a Straw Hat";
-    draw.creator = "Vincent van Gogh";
-    draw.town = "The Netherlands";*/
-    //draw.title = "Claude Monet";
-    
-    /*draw.title = "Antoine Dominique Sauveur";
-    draw.creator = "Paul Cezanna";*/
-
-    draw.creator = "Pieter Claesz";
-    draw.title = "Still Life with a Skull and a Writing Quill";
 
     const promiseBase64 = ACNLQRGenerator(draw);
     promiseBase64.then((data)=>{			
