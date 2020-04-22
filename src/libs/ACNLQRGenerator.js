@@ -99,18 +99,8 @@ async function generateACNLQR(newData){
   bgCanvas.width=45;
   bgCanvas.height=45;
   const bgCtx = bgCanvas.getContext("2d");
-  bgCtx.fillStyle = "#FFFFFF";
-  bgCtx.fillRect(0, 0, 45, 45);
-  bgCtx.fillStyle = "#9b003a44";
-  bgCtx.rotate(Math.PI / 4);
-  bgCtx.fillRect(0, -80, 16, 160);
-  bgCtx.fillRect(32, -80, 16, 160);
-  bgCtx.rotate(-Math.PI / 2);
-  bgCtx.fillRect(0, -80, 16, 160);
-  bgCtx.fillRect(-32, -80, 16, 160);
-  //Copy background to main canvas
-  ctx.fillStyle = ctx.createPattern(bgCanvas, "repeat");
-  ctx.fillRect(0, 0, width, height);
+  bgCtx.fillStyle = "#F7F7F7";
+  bgCtx.fillRect(0, 0, width, height);
 
   //Draw the pattern itself to canvas
   if (!path3D){
