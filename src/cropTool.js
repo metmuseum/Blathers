@@ -22,7 +22,7 @@ CropTool.init = (objectData) => {
 	crop.element.addEventListener('update', function(ev) {
 		const result = crop.result({type: `base64`, size: `viewport`});
 		result.then((value)=>{
-			generateQrCode(value);
+			generateQrCode(value, objectData.creator, objectData.title, objectData.island);
 		});
 
 	});

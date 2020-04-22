@@ -3,6 +3,6 @@ import DrawingTool from "./libs/DrawingTool";
 import CropTool from "./cropTool.js";
 import "./blathers.scss"
 
-document.animcalCrossingify =  function(objectData = {element: '.js-ac-image', creator: "The Met", island: "The Met"}) {
+document.animalCrossingify =  function(objectData = {element: '.js-ac-image', creator: "The Met", island: "The Met"}) {
 	CropTool.init(objectData);
 }

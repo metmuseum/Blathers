@@ -13,8 +13,12 @@ function imageToQr(imageData)
     });
 }
 
-function generateQrCode(data) 
+function generateQrCode(data, creator, title, town) 
 {
+    draw.creator = creator;
+    draw.title = title;
+    draw.town = town;
+
 	var image = new Image();
 	image.onload = function(){
 		var canvasConvert = document.createElement('canvas');
