@@ -2,8 +2,8 @@
 	"name": "blathers",
 	"version": "0.1.0",
 	"description": "Animal Crossingify any Met Open Access art work",
-	"main": "dist/main.js",
-	"sass": "src/main.scss",
+	"main": "dist/blathers.js",
+	"sass": "src/blathers.scss",
 	"devDependencies": {
 		"@babel/core": "^7.8.4",
 		"@babel/preset-env": "^7.8.4",
