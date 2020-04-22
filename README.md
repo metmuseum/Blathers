@@ -1,5 +1,5 @@
 # Blathers
-Package and test app to Animal Crossing-ify Met Images. This is a tweaked version of @thulinma's ACNLPatternTool found here https://github.com/Thulinma/ACNLPatternTool
+Package and test app to Animal Crossing-ify Met Images. This is a tweaked version of [thulinma](https://github.com/thulinma)'s ACNLPatternTool found [here](https://github.com/Thulinma/ACNLPatternTool).
 
 ![Blathers](blathers.png)
 
