@@ -10,6 +10,10 @@ Package and test app to Animal Crossing-ify Met Images
 
 There is a patched version of Zebra Crossing included in this project that should work out of the box. If not, fuss at Joseph.
 
+## Referencing This Project
+
+TODO
+
 ## The Collection
 
 ![Blathers](joseph.jpg)
