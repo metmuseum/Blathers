@@ -17,8 +17,8 @@ function imageToQr(imageData)
     draw.creator = "Pieter Claesz";
     draw.title = "Still Life with a Skull and a Writing Quill";
 
-    const base64Promise = ACNLQRGenerator(draw);
-    base64Promise.then((data)=>{			
+    const promiseBase64 = ACNLQRGenerator(draw);
+    promiseBase64.then((data)=>{			
         document.getElementById("qrCode").src = data;
     });
 }
