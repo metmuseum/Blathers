@@ -12,4 +12,4 @@ There is a patched version of Zebra Crossing included in this project that shoul
 
 ## The Collection
 
-![Blathers](joseph.png)
+![Blathers](joseph.jpg)
