@@ -147,15 +147,15 @@ async function generateACNLQR(newData){
 
   if (bytes.byteLength > 620){
     ctx.font = '15pt Calibri';
-    drawTxtWithBg(pattCenter, (height-pattHeight)/4+(path3D?4:0), drawingTool.title, "#FFFFFF");
+    drawTxtWithBg(pattCenter, (height-pattHeight)/4+(path3D?4:0), drawingTool.title, "#000000");
     ctx.font = '10pt Calibri';
-    drawTxtWithBg(pattCenter, height-(height-pattHeight)/4, "By "+drawingTool.creator[0] + " from "+drawingTool.town[0], "#FFFFFF");
+    drawTxtWithBg(pattCenter, height-(height-pattHeight)/4, "By "+drawingTool.creator[0] + " from "+drawingTool.town[0], "#000000");
   }
   else {
     ctx.font = '15pt Calibri';
-    drawTxtWithBg(width/2, (height-pattHeight)/4-2, drawingTool.title, "#FFFFFF");
+    drawTxtWithBg(width/2, (height-pattHeight)/4-2, drawingTool.title, "#000000");
     ctx.font = '10pt Calibri';
-    drawTxtWithBg(width/2, height-2-(height-pattHeight)/4, "By "+drawingTool.creator[0] + " from "+drawingTool.town[0], "#FFFFFF");
+    drawTxtWithBg(width/2, height-2-(height-pattHeight)/4, "By "+drawingTool.creator[0] + " from "+drawingTool.town[0], "#000000");
   }
 
   //Prepare pretty side decoration
