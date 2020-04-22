@@ -5,8 +5,8 @@ import generateQrCode from "./qrGenerator.js"
 class CropTool{
 }
 
-CropTool.init = () => {
-	const imgEl = document.querySelector('.js-ac-image');
+CropTool.init = (objectData) => {
+	const imgEl = document.querySelector(objectData.element);
 	var crop = new Croppie(imgEl, {
 
 		boundary: { width: 300, height: 300 },

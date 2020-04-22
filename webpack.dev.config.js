@@ -22,10 +22,6 @@ module.exports = merge(common, {
 			template: __dirname + "/src/index.html",
 			inject: "body",
 			base: "/",
-			minify: {
-				collapseWhitespace: true,
-				removeRedundantAttributes: true
-			}
 		})
 	]
 });

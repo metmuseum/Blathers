@@ -11,8 +11,6 @@
 
 
 
-This part mimics the live object page - This doesnt have to be copied over
-
 <div class="cell the-artwork gtm__TGACTEST01">
 	<div id="the-artwork__inset" class="the-artwork__inset">
 		<figure itemType="http://schema.org/ImageObject" class="artwork">
@@ -22,3 +20,38 @@ This part mimics the live object page - This doesnt have to be copied over
 		</figure>
 	</div>
 </div>
+
+<script>
+	const acQrModal = document.querySelector(".js-ac-modal");
+	const artworkImage = document.querySelector(".artwork__image");
+	const acImage = acQrModal.querySelector(".js-ac-image");
+
+	const acQrClose = acQrModal.querySelector(".js-ac-modal__close");
+	let cropToolNotInitialized = true;
+
+	let objectData = {
+		element: '.js-ac-image',
+		creator: "The Met",
+		island: "The Met"
+	};
+
+	document.querySelector(".js-animal-crossing-button").addEventListener("click", (e)=> {
+		e.preventDefault();
+
+		objectData.creator = "TODO: DAVID";
+		objectData.island = "ALSO: DAVID";
+
+		if (cropToolNotInitialized) {
+			acImage.src = artworkImage.src;
+			document.animcalCrossingify(objectData);
+			cropToolNotInitialized = false;
+		}
+
+		acQrModal.classList.toggle("is-open");
+	});
+
+	acQrClose.addEventListener("click", (e) => {
+		e.preventDefault();
+		acQrModal.classList.remove("is-open");
+	})
+</script>

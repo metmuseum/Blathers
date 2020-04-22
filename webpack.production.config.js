@@ -7,18 +7,13 @@ module.exports = merge(common, {
   devtool: "source-map",
   output: {
     path: __dirname + "/dist",
-    filename: "blathers.js"
+    filename: "blathers.min.js"
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       inject: "body",
-      minify: {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true
-      }
     })
   ]
 });
