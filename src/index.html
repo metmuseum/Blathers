@@ -33,24 +33,38 @@
 		element: '.js-ac-image'
 	};
 
-	document.querySelector(".js-animal-crossing-button").addEventListener("click", (e)=> {
-		e.preventDefault();
 
+	let openModal = () => {
 		objectData.title="TODO: David PLZ";
 		objectData.creator = "TODO: DAVID";
 		objectData.island = "ALSO: DAVID";
+		acImage.src = artworkImage.src;
 
+		document.animalCrossingify(objectData);
+		acQrModal.classList.add("is-open");
+
+	};
+
+
+	let loadACScript = () => {
+		const acQrToolScript = document.createElement('script');
+		acQrToolScript.setAttribute('src','./assets/blathers.min.js');
+		document.head.appendChild(acQrToolScript);
+
+		acQrToolScript.onload = () => {
+		  openModal();
+		};
+	}
+
+
+	document.querySelector(".js-animal-crossing-button").addEventListener("click", (e)=> {
+		e.preventDefault();
 		if (cropToolNotInitialized) {
-			acImage.src = artworkImage.src;
-			document.animalCrossingify(objectData);
+			loadACScript();
 			cropToolNotInitialized = false;
+		} else {
+			acQrModal.classList.toggle("is-open");
 		}
-
-		acQrModal.classList.toggle("is-open");
 	});
 
-	acQrClose.addEventListener("click", (e) => {
-		e.preventDefault();
-		acQrModal.classList.remove("is-open");
-	})
 </script>
