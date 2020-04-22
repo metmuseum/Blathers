@@ -8,7 +8,7 @@ Package and test app to Animal Crossing-ify Met Images. This is a tweaked versio
 2. npm install
 3. npm run build or npm run start
 
-There is a patched version of Zebra Crossing included in this project that should work out of the box. If not, fuss at Joseph.
+There is a patched version of Zebra Crossing (also based off thulinma's [work](https://github.com/Thulinma/zxing-js-library/tree/c0584ff4133dd68fc996ac8e45cdff40a6d1f483) included in this project that should work out of the box. If not, fuss at Joseph.
 
 ## Referencing This Project
 
