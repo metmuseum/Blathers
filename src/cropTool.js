@@ -1,33 +1,8 @@
 import Croppie from "croppie";
-import ACNLQRGenerator from "./libs/ACNLQRGenerator";
-import DrawingTool from "./libs/DrawingTool";
 import "croppie/croppie.css";
-
+import generateQrCode from "./qrGenerator.js"
 
 class CropTool{
-}
-
-var draw = new DrawingTool();
-
-function initDrawTool(data) {
-	var img = new Image();
-	img.onload = function(){
-		var canvas_convert = document.createElement('canvas');
-		canvas_convert.width = draw.width;
-		canvas_convert.height = draw.height;
-		var ctx_convert = canvas_convert.getContext("2d");
-		ctx_convert.drawImage(img,0,0,draw.width,draw.height);
-		var imgdata = ctx_convert.getImageData(0, 0, draw.width, draw.height);
-
-		//draw.addCanvas(canvas_convert);
-		
-		draw.getImagePaletteRgb(imgdata);
-		const base64Image = ACNLQRGenerator(draw);
-		base64Image.then((value)=>{			
-			document.getElementById("qrCode").src = value;
-		});
-	}
-	img.src = data;
 }
 
 CropTool.init = () => {
@@ -50,7 +25,7 @@ CropTool.init = () => {
 		result.then((value)=>{
 			resultInput.value = value;
 
-			initDrawTool(value);			
+			generateQrCode(value);			
 		});
 
 	});
