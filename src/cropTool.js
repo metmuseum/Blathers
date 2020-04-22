@@ -6,10 +6,9 @@ class CropTool{
 }
 
 CropTool.init = () => {
-	const imgEl = document.querySelector('.js-image');
-	const resultInput = document.querySelector(".js-blathers-result");
+	const imgEl = document.querySelector('.js-ac-image');
 	var crop = new Croppie(imgEl, {
-		viewport: { width: 300, height: 300 },
+
 		boundary: { width: 300, height: 300 },
 		showZoomer: true,
 		enableOrientation: true
@@ -23,8 +22,7 @@ CropTool.init = () => {
 	crop.element.addEventListener('update', function(ev) {
 		const result = crop.result({type: `base64`, size: `viewport`});
 		result.then((value)=>{
-			resultInput.value = value;
-			generateQrCode(value);			
+			generateQrCode(value);
 		});
 
 	});

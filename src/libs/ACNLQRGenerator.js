@@ -1,7 +1,7 @@
 import DrawingTool from "./DrawingTool";
 
 //For QR generation
-import { QRCodeEncoder, QRCodeDecoderErrorCorrectionLevel, EncodeHintType } from '@zxing/library';
+import { QRCodeEncoder, QRCodeDecoderErrorCorrectionLevel, EncodeHintType } from '../patches/@zxing/library';
 
 //for 3D renders
 // import {

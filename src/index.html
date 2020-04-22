@@ -1,12 +1,24 @@
-<div class="main">Hello World!</div>
+<a class="share-button--animal-crossing js-animal-crossing-button" href="#"><img src="../assets/icon/ac-icon.png"></a>
 
-<canvas id="imageToEncode" ></canvas>
+<section class="ac-modal js-ac-modal">
+	<a href="#" class="js-ac-modal__close ac-modal__close">&times;</a>
+	<canvas id="imageToEncode" class="ac-modal__canvas"></canvas>
+	<div class="ac-modal__image-container">
+			<img class="js-ac-image ac-modal__image" src="" alt="Image To Crop">
+	</div>
+	<img id="qrCode" class="ac-modal__qr" alt="QR Code for Animal Crossing New Horizons"/>
+</section>
 
 
-Image:
-<img src="assets/images/skull.jpeg" alt="" class="js-image">
 
-<textarea readonly class="js-blathers-result blathers-result"></textarea>
+This part mimics the live object page - This doesnt have to be copied over
 
-Output:
-<img id="qrCode" ></canvas>
+<div class="cell the-artwork gtm__TGACTEST01">
+	<div id="the-artwork__inset" class="the-artwork__inset">
+		<figure itemType="http://schema.org/ImageObject" class="artwork">
+			<div id="artwork__image__wrapper" class="artwork__image__wrapper">
+				<img id="artwork__image" class="artwork__image" src="assets/images/skull.jpeg"" alt="" itemprop="contentUrl">
+			</div>
+		</figure>
+	</div>
+</div>
