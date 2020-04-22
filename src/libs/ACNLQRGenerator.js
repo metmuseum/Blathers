@@ -134,7 +134,6 @@ async function generateACNLQR(newData){
     ctx.stroke();
     ctx.fillStyle="#00000088";
     ctx.strokeStyle="#00000088";
-    ctx.fillText(txt, x+2, y+2);
     ctx.fillStyle=fore;
     ctx.strokeStyle=fore;
     ctx.fillText(txt, x, y);
