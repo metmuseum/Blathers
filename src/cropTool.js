@@ -9,7 +9,7 @@ CropTool.init = (objectData) => {
 	const imgEl = document.querySelector(objectData.element);
 	var crop = new Croppie(imgEl, {
 
-		boundary: { width: 300, height: 300 },
+		boundary: { width: 275, height: 275 },
 		showZoomer: true,
 		enableOrientation: true
 	});
