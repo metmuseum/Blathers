@@ -3,23 +3,6 @@ import DrawingTool from "./DrawingTool";
 //For QR generation
 import { QRCodeEncoder, QRCodeDecoderErrorCorrectionLevel, EncodeHintType } from '../patches/@zxing/library';
 
-//for 3D renders
-// import {
-//   Scene,
-//   Texture,
-//   sRGBEncoding,
-//   NearestFilter,
-//   PerspectiveCamera,
-//   Mesh,
-//   MeshBasicMaterial,
-//   WebGLRenderer
-// } from '@three/core';
-// import {
-//   GLTFLoader
-// } from '@three/loaders/GLTFLoader';
-
-
-
 async function generateACNLQR(newData){
   //Load pattern, prepare render canvas
   const drawingTool = (newData instanceof DrawingTool) ? newData : new DrawingTool(newData);
@@ -112,9 +95,9 @@ async function generateACNLQR(newData){
   //Prepare background pattern for text
   bgCanvas.width=1;
   bgCanvas.height=2;
-  bgCtx.fillStyle = "#792e58";
+  bgCtx.fillStyle = "#F7F7F7";
   bgCtx.fillRect(0, 0, 1, 1);
-  bgCtx.fillStyle = "#883e5f";
+  bgCtx.fillStyle = "#F7F7F7";
   bgCtx.fillRect(0, 1, 1, 1);
   const txtBg = ctx.createPattern(bgCanvas, "repeat");
 
@@ -126,16 +109,16 @@ async function generateACNLQR(newData){
     ctx.strokeStyle=fore;
     //Calculate background
     ctx.beginPath();
-    ctx.arc(x-w/2, y, h/2, 0.5*Math.PI, 1.5*Math.PI);
-    ctx.lineTo(x+w/2, y-h/2);
-    ctx.arc(x+w/2, y, h/2, 1.5*Math.PI, 0.5*Math.PI);
-    ctx.lineTo(x+-w/2, y+h/2);
+    // ctx.arc(x-w/2, y, h/2, 0.5*Math.PI, 1.5*Math.PI);
+    // ctx.lineTo(x+w/2, y-h/2);
+    // ctx.arc(x+w/2, y, h/2, 1.5*Math.PI, 0.5*Math.PI);
+    // ctx.lineTo(x+-w/2, y+h/2);
     ctx.fill();
-    ctx.stroke();
+    //ctx.stroke();
     ctx.fillStyle="#00000088";
-    ctx.strokeStyle="#00000088";
+    //ctx.strokeStyle="#00000088";
     ctx.fillStyle=fore;
-    ctx.strokeStyle=fore;
+    //ctx.strokeStyle=fore;
     ctx.fillText(txt, x, y);
   }
 
@@ -146,15 +129,15 @@ async function generateACNLQR(newData){
 
   if (bytes.byteLength > 620){
     ctx.font = '15pt Calibri';
-    drawTxtWithBg(pattCenter, (height-pattHeight)/4+(path3D?4:0), drawingTool.title, "#000000");
+    drawTxtWithBg(pattCenter, (height-pattHeight)/4+(path3D?4:0), drawingTool.title, "#111111");
     ctx.font = '10pt Calibri';
-    drawTxtWithBg(pattCenter, height-(height-pattHeight)/4, "By "+drawingTool.creator[0] + " from "+drawingTool.town[0], "#000000");
+    drawTxtWithBg(pattCenter, height-(height-pattHeight)/4, "By "+drawingTool.creator[0] + " from "+drawingTool.town[0], "#111111");
   }
   else {
     ctx.font = '15pt Calibri';
-    drawTxtWithBg(width/2, (height-pattHeight)/4-2, drawingTool.title, "#000000");
+    drawTxtWithBg(width/2, (height-pattHeight)/4-2, drawingTool.title, "#111111");
     ctx.font = '10pt Calibri';
-    drawTxtWithBg(width/2, height-2-(height-pattHeight)/4, "By "+drawingTool.creator[0] + " from "+drawingTool.town[0], "#000000");
+    drawTxtWithBg(width/2, height-2-(height-pattHeight)/4, "By "+drawingTool.creator[0] + " from "+drawingTool.town[0], "#111111");
   }
 
   //Prepare pretty side decoration
@@ -162,7 +145,7 @@ async function generateACNLQR(newData){
   bgCanvas.height=6;
   bgCtx.fillStyle = "#FFFFFF";
   bgCtx.fillRect(0, 0, 3, 6);
-  bgCtx.fillStyle = "#c7b98c";
+  bgCtx.fillStyle = "#FFFFFF";
   bgCtx.fillRect(0.5, 0, 2, 4);
   const borderDeco = ctx.createPattern(bgCanvas, "repeat")
 
