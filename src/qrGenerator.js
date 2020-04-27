@@ -20,6 +20,8 @@ function generateQrCode(data, creator, title, town)
     draw.town = town;
 
 	var image = new Image();
+	image.crossOrigin = "Anonymous";
+
 	image.onload = function(){
 		var canvasConvert = document.createElement('canvas');
 		canvasConvert.width = draw.width;
