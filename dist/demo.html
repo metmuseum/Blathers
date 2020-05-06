@@ -1,0 +1,44 @@
+<head><link href="blathers.bundle.css" rel="stylesheet"><link href="demo.bundle.css" rel="stylesheet"></head><section class="example">
+  <h1>Example with crop</h1>
+  <div class="container">
+    <div>
+      <img
+        class="js-blathers-source blathers__image"
+        src="assets/images/stilllifewithskull.jpeg"
+        alt="Still Life With Skull"
+      />
+    </div>
+    <div class="js-blathers-result blathers__result"></div>
+  </div>
+</section>
+
+<section class="example">
+  <h1>Basic Example Without Crop</h1>
+  <div class="container">
+    <img
+      class="js-nocrop-source blathers__image"
+      src="assets/images/romanV.jpeg"
+      alt="Roman Alphabet Letter V"
+    />
+    <div class="js-nocrop-result blathers__result"></div>
+  </div>
+</section>
+
+<style>
+  .example {
+    padding: 20px;
+  }
+
+  .container {
+    flex-direction: column;
+    display: flex;
+  }
+
+  .blathers__image {
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+  }
+</style>
+<script type="text/javascript" src="blathers.bundle.js"></script><script type="text/javascript" src="demo.bundle.js"></script>
