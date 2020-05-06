@@ -1,7 +1,5 @@
 import blathersify from "./index.js";
 
-console.log(blathersify);
-
 window.blathersify = blathersify;
 
 const stillLifeWithSkullData = {

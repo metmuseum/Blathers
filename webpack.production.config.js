@@ -5,10 +5,6 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = merge(common, {
   mode: "production",
   devtool: "source-map",
-  // output: {
-  //   path: __dirname + "/dist",
-  //   filename: "blathers.min.js",
-  // },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
