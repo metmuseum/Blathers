@@ -1,9 +1,30 @@
 # Blathers
+
 Package and test app to Animal Crossing-ify Met Images. This is a tweaked version of [thulinma](https://github.com/thulinma)'s ACNLPatternTool found [here](https://github.com/Thulinma/ACNLPatternTool).
 
 ![Blathers](blathers.png)
 
+## Usage (WIP)
+
+    npm install blathers
+
+or whatever.
+
+Production-ready stuff is in `/dist`.
+
+Otherwise, ESM:
+
+```js
+import blathersify from "blathers";
+
+blathersify({
+  // default: ".js-blathers-result"
+  resultContainer: "#blathers-container",
+});
+```
+
 ## Local Development Set Up Instructions
+
 1. Clone this repository
 2. npm install
 3. npm run build or npm run start

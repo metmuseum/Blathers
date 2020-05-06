@@ -1,45 +1,50 @@
 {
-	"name": "Blathers",
-	"version": "1.0.0",
-	"description": "Animal Crossingify any Artwork",
-	"main": "dist/blathers.js",
-	"sass": "src/blathers.scss",
-	"devDependencies": {
-		"@babel/core": "^7.8.4",
-		"@babel/preset-env": "^7.8.4",
-		"@babel/preset-react": "^7.8.3",
-		"asset-config-webpack-plugin": "^1.4.0",
-		"babel-loader": "^8.0.6",
-		"clean-webpack-plugin": "^3.0.0",
-		"html-webpack-plugin": "^3.2.0",
-		"js-config-webpack-plugin": "^1.4.0",
-		"path": "^0.12.7",
-		"scss-config-webpack-plugin": "^1.4.0",
-		"webpack": "^4.41.5",
-		"webpack-cli": "^3.3.10",
-		"webpack-dev-server": "^3.10.2",
-		"webpack-merge": "^4.2.2"
-	},
-	"scripts": {
-		"build": "webpack --config webpack.production.config.js",
-		"devbuild": "webpack --config webpack.dev.config.js",
-		"clean": "rm dist/bundle.js",
-		"start": "webpack-dev-server --open --hot --config webpack.dev.config.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/metmuseum/blathers.git"
-	},
-	"author": "The Met",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/metmuseum/blathers/issues"
-	},
-	"homepage": "https://github.com/metmuseum/blathers#readme",
-	"dependencies": {
-		"@zxing/library": "^0.16.3",
-		"croppie": "^2.6.4",
-		"jsbi": "^3.1.2",
-		"lz-string": "^1.4.4"
-	}
+  "name": "Blathers",
+  "version": "1.0.0",
+  "corejs": 3,
+  "description": "Animal Crossingify any Artwork",
+  "main": "dist/blathers.js",
+  "module": "src/index.js",
+  "sass": "src/blathers.scss",
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/runtime": "^7.9.6",
+    "@babel/runtime-corejs3": "^7.9.6",
+    "asset-config-webpack-plugin": "^1.4.0",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "core-js": "^3.6.5",
+    "html-webpack-plugin": "^3.2.0",
+    "js-config-webpack-plugin": "^1.4.0",
+    "path": "^0.12.7",
+    "scss-config-webpack-plugin": "^1.4.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.2",
+    "webpack-merge": "^4.2.2"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.production.config.js",
+    "devbuild": "webpack --config webpack.dev.config.js",
+    "clean": "rm dist/bundle.js",
+    "start": "webpack-dev-server --open --hot --config webpack.dev.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metmuseum/blathers.git"
+  },
+  "author": "The Met",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/metmuseum/blathers/issues"
+  },
+  "homepage": "https://github.com/metmuseum/blathers#readme",
+  "dependencies": {
+    "@zxing/library": "^0.16.3",
+    "croppie": "^2.6.4",
+    "jsbi": "^3.1.2",
+    "lz-string": "^1.4.4"
+  }
 }

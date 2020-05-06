@@ -111,7 +111,7 @@
   ],
   "license": "MIT",
   "main": "./umd/index.min.js",
-  "module": "./esm5/index.js",
+  "module": "./esm/index.js",
   "name": "@zxing/library",
   "nyc": {
     "include": [
