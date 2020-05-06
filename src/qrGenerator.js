@@ -1,37 +1,38 @@
 import ACNLQRGenerator from "./libs/ACNLQRGenerator";
 import DrawingTool from "./libs/DrawingTool";
 
-var draw = new DrawingTool();
+let draw = new DrawingTool();
 
-function imageToQr(imageData)
-{
-    draw.getImagePaletteRgb(imageData);
+function imageToQr(imageData, resultRef){
+	draw.getImagePaletteRgb(imageData);
+	const promiseBase64 = ACNLQRGenerator(draw);
 
-    const promiseBase64 = ACNLQRGenerator(draw);
-    promiseBase64.then((data)=>{
-        document.getElementById("qrCode").src = data;
-    });
+  promiseBase64.then((data)=> {
+		const resultContainer = document.querySelector(resultRef);
+		let qrCode = resultContainer.querySelector('.js-blathers__qr');
+		qrCode.src = data;
+		qrCode.classList.remove("is-hidden");
+  });
 }
 
-function generateQrCode(data, creator, title, town)
-{
-    draw.creator = creator;
-    draw.title = title;
-    draw.town = town;
+function generateQrCode(imageSrc, objectData, resultRef){
+	draw.creator = objectData.creator || "Creator";
+	draw.title = objectData.title || "Title";
+  draw.town = objectData.island || "Location";
 
-	var image = new Image();
+	let image = new Image();
 	image.crossOrigin = "Anonymous";
 
 	image.onload = function(){
-		var canvasConvert = document.createElement('canvas');
+		let canvasConvert = document.createElement("canvas");
 		canvasConvert.width = draw.width;
 		canvasConvert.height = draw.height;
-		var contextConvert = canvasConvert.getContext("2d");
+		let contextConvert = canvasConvert.getContext("2d");
 		contextConvert.drawImage(image,0,0,draw.width,draw.height);
-    var imageData = contextConvert.getImageData(0, 0, draw.width, draw.height);
-    imageToQr(imageData);
+    let imageData = contextConvert.getImageData(0, 0, draw.width, draw.height);
+    imageToQr(imageData, resultRef);
 	}
-	image.src = data;
+	image.src = imageSrc;
 }
 
 export default generateQrCode;

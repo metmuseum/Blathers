@@ -1,55 +1,8 @@
-
-* {
-	box-sizing: border-box;
-}
-
-.share-button--animal-crossing {
-	display: inline-block;
-}
-
-.ac-modal {
-	background-color: rgba(255,255,255,0.7);
-	display: none;
-	flex-wrap: wrap;
+.blathers__result {
+	display: flex;
 	justify-content: center;
-	margin: 32px;
-	padding: 10px;
-	position: absolute;
-	width: auto;
-	&.is-open {
-		display: flex;
-	}
 }
 
-.ac-modal__canvas {
-	height: 0;
-	width: 0;
-}
-
-.ac-modal__qr,
-.ac-modal__image-container {
-	align-self: flex-start;
-	max-width: 100%;
-	margin: 0 32px;
-}
-
-.ac-modal__credit {
-	font-size: 15px;
-	font-style: italic;
-	margin: 0;
-}
-
-.ac-modal__close {
-	border-bottom: none;
-	color: black;
-	font-size: 24px;
-	line-height: 12px;
-	position: absolute;
-	right: 16px;
-	text-decoration: none;
-	top: 16px;
-	transition: opacity 0.2s;
-	&:hover {
-		opacity: 0.5;
-	}
+.blathers__qr.is-hidden {
+	display: none;
 }

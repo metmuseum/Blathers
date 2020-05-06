@@ -1,7 +1,7 @@
 {
-	"name": "blathers",
-	"version": "0.1.0",
-	"description": "Animal Crossingify any Met Open Access art work",
+	"name": "Blathers",
+	"version": "1.0.0",
+	"description": "Animal Crossingify any Artwork",
 	"main": "dist/blathers.js",
 	"sass": "src/blathers.scss",
 	"devDependencies": {
@@ -40,7 +40,6 @@
 		"@zxing/library": "^0.16.3",
 		"croppie": "^2.6.4",
 		"jsbi": "^3.1.2",
-		"lz-string": "^1.4.4",
-		"three": "^0.115.0"
+		"lz-string": "^1.4.4"
 	}
 }

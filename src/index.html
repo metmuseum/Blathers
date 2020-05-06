@@ -1,25 +1,64 @@
+<section class="example">
+	<h1>Example with crop</h1>
+	<div class="container">
+		<div>
+			<img class="js-blathers-source blathers__image" src="assets/images/stilllifewithskull.jpeg" alt="Still Life With Skull">
+		</div>
+		<div class="js-blathers-result blathers__result"></div>
+	</div>
+</section>
 
-<div class="example example--auto">
-	<img src="https://s9.limitedrun.com/images/1281048/v300_174_942_72_preview.jpg" class="js-no-crop" height="300" width="300">
-	<canvas id="imageToEncode" height="300" width="300"></canvas>
-	<img id="qrCode" class="ac-modal__qr" alt="QR Code for Animal Crossing New Horizons"/>
-</div>
+<section class="example">
+	<h1>Basic Example Without Crop</h1>
+	<div class="container">
+		<img class="js-nocrop-source blathers__image" src="assets/images/romanV.jpeg" alt="Roman Alphabet Letter V">
+		<div class="js-nocrop-result blathers__result"></div>
+	</div>
+</section>
 
+<style>
+	.example {
+		padding: 20px;
+	}
 
+	.container {
+		flex-direction: column;
+		display: flex;
+	}
+
+	.blathers__image {
+		display: block;
+		max-width: 400px;
+		width: 100%;
+		margin: 0 auto;
+	}
+</style>
 <script>
-	//For a basic implementation just call document.animalCrossingify(objectData);
-
-	//If You're working with square images already and don't want to allow cropping...
-	// call document.animalCrossingifyWithoutCropping(objectData);
-
-	let squareObject = {
-		element: '.js-no-crop',
-		title: "G L",
-		creator: "Rat Boys",
-		island: "Topshelf"
+	const stillLifeWithSkullData = {
+		title: "Still Life with a Skull and a Writing Quill",
+		creator: "Pieter Claesz",
+		location: "Met Museum"
 	};
 
-	document.addEventListener("DOMContentLoaded", function(event) {
-	 	document.animalCrossingifyWithoutCropping(squareObject);
-	});
+	const romanVData = {
+		title: "Roman Alphabet Letter V",
+		creator: "Bernard Picart",
+		location: "Met Museum"
+	}
+
+	window.onload = function() {
+		document.blathersify({
+			useCropTool: true,
+			image: ".js-blathers-source",
+			resultContainer: ".js-blathers-result",
+			objectData: stillLifeWithSkullData
+		});
+
+		document.blathersify({
+			useCropTool: false,
+			image: ".js-nocrop-source",
+			resultContainer: ".js-nocrop-result",
+			objectData: romanVData
+		});
+	};
 </script>
