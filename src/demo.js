@@ -1,6 +1,6 @@
-import blathersify from "./index.js";
+import Blathersify from "./index.js";
 
-window.blathersify = blathersify;
+window.blathersify = Blathersify;
 
 const stillLifeWithSkullData = {
   title: "Still Life with a Skull and a Writing Quill",
@@ -8,24 +8,24 @@ const stillLifeWithSkullData = {
   location: "Met Museum",
 };
 
-const romanVData = {
-  title: "Roman Alphabet Letter V",
-  creator: "Bernard Picart",
+const entranceToADutchPortData = {
+  title: "Entrance to a Dutch Port",
+  creator: "Willem van de Velde II",
   location: "Met Museum",
 };
 
 window.onload = function () {
-  window.blathersify({
+  new Blathersify({
     useCropTool: true,
     image: ".js-blathers-source",
     resultContainer: ".js-blathers-result",
     objectData: stillLifeWithSkullData,
   });
 
-  window.blathersify({
+  new Blathersify({
     useCropTool: false,
     image: ".js-nocrop-source",
     resultContainer: ".js-nocrop-result",
-    objectData: romanVData,
+    objectData: entranceToADutchPortData,
   });
 };
