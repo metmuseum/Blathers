@@ -18,7 +18,7 @@ function imageToQr(imageData, resultRef) {
 function generateQrCode(imageSrc, objectData, resultRef) {
   draw.creator = objectData.creator || "Creator";
   draw.title = objectData.title || "Title";
-  draw.town = objectData.island || "Location";
+  draw.town = objectData.location || "Location";
 
   let image = new Image();
   image.crossOrigin = "Anonymous";
